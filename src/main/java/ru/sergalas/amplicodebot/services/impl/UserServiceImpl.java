@@ -1,11 +1,11 @@
-package ru.sergalas.amplicodebot.servuces.impl;
+package ru.sergalas.amplicodebot.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.sergalas.amplicodebot.entity.UserSession;
 import ru.sergalas.amplicodebot.exception.UserSessionNotFoundException;
 import ru.sergalas.amplicodebot.repository.UserSessionRepository;
-import ru.sergalas.amplicodebot.servuces.UserService;
+import ru.sergalas.amplicodebot.services.UserService;
 
 import java.util.Locale;
 

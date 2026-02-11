@@ -8,17 +8,19 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.sergalas.amplicodebot.bot.commands.Command;
 import ru.sergalas.amplicodebot.bot.enums.CommandEnum;
 import ru.sergalas.amplicodebot.bot.events.MassageEvent;
+import ru.sergalas.amplicodebot.bot.services.KeyboardServices;
 import ru.sergalas.amplicodebot.bot.services.LocalizationService;
 
 @RequiredArgsConstructor
 @Component
-public class AboutCommand implements Command {
+public class StartCommand implements Command {
     private final ApplicationEventPublisher publisher;
     private final LocalizationService localizationService;
+    private final KeyboardServices keyboardServices;
 
     @Override
     public boolean canHandle(Update update) {
-        if(!update.hasMessage() || !update.getMessage().hasText()) {
+        if(!update.hasMessage() && !update.getMessage().hasText()) {
             return false;
         }
         Long chatId = update.getMessage().getChatId();
@@ -26,7 +28,7 @@ public class AboutCommand implements Command {
             .getMessage()
             .getText()
             .equals(
-                localizationService.getLocalizedMessage(chatId,"menu.about")
+                localizationService.getLocalizedMessage(chatId,"menu.start")
             );
     }
 
@@ -38,8 +40,9 @@ public class AboutCommand implements Command {
             SendMessage message = SendMessage // Create a message object
                     .builder()
                     .chatId(chatId)
+                    .replyMarkup(keyboardServices.mainMenu(chatId))
                     .text(
-                            localizationService.getLocalizedMessage(chatId,"system.about")
+                            localizationService.getLocalizedMessage(chatId,"menu.welcome")
                     )
                     .build();
             publisher.publishEvent(new MassageEvent(this, message));

@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import ru.sergalas.amplicodebot.bot.services.LocalizationService;
-import ru.sergalas.amplicodebot.servuces.UserService;
+import ru.sergalas.amplicodebot.services.UserService;
 import java.util.Locale;
 
 @Service
