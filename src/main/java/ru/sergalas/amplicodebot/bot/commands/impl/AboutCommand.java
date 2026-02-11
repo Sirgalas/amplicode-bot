@@ -5,23 +5,29 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-import org.telegram.telegrambots.meta.generics.TelegramClient;
 import ru.sergalas.amplicodebot.bot.commands.Command;
 import ru.sergalas.amplicodebot.bot.enums.CommandEnum;
 import ru.sergalas.amplicodebot.bot.events.MassageEvent;
+import ru.sergalas.amplicodebot.bot.services.LocalizationService;
 
 @RequiredArgsConstructor
 @Component
 public class AboutCommand implements Command {
     private final ApplicationEventPublisher publisher;
+    private final LocalizationService localizationService;
 
     @Override
     public boolean canHandle(Update update) {
         if(!update.hasMessage() && !update.getMessage().hasText()) {
             return false;
         }
-        return update.getMessage().getText().equals("/about");
+        Long chatId = update.getMessage().getChatId();
+        return update
+            .getMessage()
+            .getText()
+            .equals(
+                localizationService.getLocalizedMessage(chatId,"menu.about")
+            );
     }
 
     @Override
@@ -32,7 +38,9 @@ public class AboutCommand implements Command {
             SendMessage message = SendMessage // Create a message object
                     .builder()
                     .chatId(chatId)
-                    .text("Приветствую")
+                    .text(
+                            localizationService.getLocalizedMessage(chatId,"system.about")
+                    )
                     .build();
             publisher.publishEvent(new MassageEvent(this, message));
         }

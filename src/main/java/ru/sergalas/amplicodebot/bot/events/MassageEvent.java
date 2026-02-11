@@ -1,7 +1,6 @@
 package ru.sergalas.amplicodebot.bot.events;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEvent;
 import org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethod;
 

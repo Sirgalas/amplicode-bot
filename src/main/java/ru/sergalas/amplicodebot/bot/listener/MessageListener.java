@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.botapimethods.BotApiMethod;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.generics.TelegramClient;
-import ru.sergalas.amplicodebot.bot.AmplicodeBot;
 import ru.sergalas.amplicodebot.bot.events.MassageEvent;
 
 import java.io.Serializable;
