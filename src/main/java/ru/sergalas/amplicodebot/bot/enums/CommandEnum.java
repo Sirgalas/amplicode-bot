@@ -5,7 +5,10 @@ public enum CommandEnum {
     ABOUT("ABOUT"),
     LANGUAGE("LANGUAGE"),
     EXPERTS("EXPERTS"),
-    ASK_EXPERT("ASK_EXPERT");
+    ASK_EXPERT("ASK_EXPERT"),
+    QUESTION_EXPERT("QUESTION_EXPERT"),
+    FACT("FACT"),
+    ASC("ASC");
 
     private final String name;
     CommandEnum(final String name) {

@@ -23,6 +23,7 @@ public class KeyboardServicesImpl implements KeyboardServices {
         List<KeyboardRow> keyboard = new ArrayList<>();
         KeyboardRow rowOne = new KeyboardRow();
         rowOne.add(localizationService.getLocalizedMessage(chatId, "menu.about"));
+        rowOne.add(localizationService.getLocalizedMessage(chatId, "menu.fact"));
         keyboard.add(rowOne);
 
         KeyboardRow rowTwo = new KeyboardRow();
@@ -31,6 +32,7 @@ public class KeyboardServicesImpl implements KeyboardServices {
 
         KeyboardRow rowThree = new KeyboardRow();
         rowThree.add(localizationService.getLocalizedMessage(chatId, "menu.experts"));
+        rowThree.add(localizationService.getLocalizedMessage(chatId, "menu.ask"));
         keyboard.add(rowThree);
 
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboard);
