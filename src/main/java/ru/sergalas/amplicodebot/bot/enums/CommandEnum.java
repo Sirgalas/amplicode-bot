@@ -3,7 +3,9 @@ package ru.sergalas.amplicodebot.bot.enums;
 public enum CommandEnum {
     START("START"),
     ABOUT("ABOUT"),
-    LANGUAGE("LANGUAGE");
+    LANGUAGE("LANGUAGE"),
+    EXPERTS("EXPERTS"),
+    ASK_EXPERT("ASK_EXPERT");
 
     private final String name;
     CommandEnum(final String name) {

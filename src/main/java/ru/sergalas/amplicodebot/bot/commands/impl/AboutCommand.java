@@ -7,7 +7,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.sergalas.amplicodebot.bot.commands.Command;
 import ru.sergalas.amplicodebot.bot.enums.CommandEnum;
-import ru.sergalas.amplicodebot.bot.events.MassageEvent;
+import ru.sergalas.amplicodebot.bot.events.MessageEvent;
 import ru.sergalas.amplicodebot.bot.services.LocalizationService;
 
 @RequiredArgsConstructor
@@ -42,7 +42,7 @@ public class AboutCommand implements Command {
                             localizationService.getLocalizedMessage(chatId,"system.about")
                     )
                     .build();
-            publisher.publishEvent(new MassageEvent(this, message));
+            publisher.publishEvent(new MessageEvent(this, message));
         }
     }
 

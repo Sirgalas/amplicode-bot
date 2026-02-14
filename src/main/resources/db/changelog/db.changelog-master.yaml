@@ -1,3 +1,7 @@
 databaseChangeLog:
   - include:
       file: db/changelog/1-init.sql
+  - include:
+      file: db/changelog/02-add_two_columns_in_user_session_table.sql
+  - include:
+      file: db/changelog/03-add_user_state_in_user_session_table.sql

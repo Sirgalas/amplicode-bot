@@ -29,6 +29,10 @@ public class KeyboardServicesImpl implements KeyboardServices {
         rowTwo.add(localizationService.getLocalizedMessage(chatId, "menu.language"));
         keyboard.add(rowTwo);
 
+        KeyboardRow rowThree = new KeyboardRow();
+        rowThree.add(localizationService.getLocalizedMessage(chatId, "menu.experts"));
+        keyboard.add(rowThree);
+
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup(keyboard);
         replyKeyboardMarkup.setResizeKeyboard(true);
         replyKeyboardMarkup.setOneTimeKeyboard(false);
