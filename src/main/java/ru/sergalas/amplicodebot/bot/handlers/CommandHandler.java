@@ -19,6 +19,7 @@ public class CommandHandler {
         for (Command command : commands) {
             if(command.canHandle(update)) {
                 command.handle(update);
+                return;
             }
         }
     }

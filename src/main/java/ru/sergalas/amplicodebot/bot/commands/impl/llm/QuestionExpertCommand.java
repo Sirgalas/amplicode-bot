@@ -8,6 +8,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.sergalas.amplicodebot.bot.commands.Command;
 import ru.sergalas.amplicodebot.bot.enums.CommandEnum;
 import ru.sergalas.amplicodebot.bot.events.MessageEvent;
+import ru.sergalas.amplicodebot.bot.services.KeyboardServices;
 import ru.sergalas.amplicodebot.bot.services.LocalizationService;
 import ru.sergalas.amplicodebot.entities.enums.UserState;
 import ru.sergalas.amplicodebot.entities.services.UserService;
@@ -18,6 +19,7 @@ public class QuestionExpertCommand implements Command {
     private final ApplicationEventPublisher publisher;
     private final LocalizationService localizationService;
     private final UserService userService;
+    private final KeyboardServices keyboardServices;
 
     @Override
     public boolean canHandle(Update update) {
@@ -37,6 +39,7 @@ public class QuestionExpertCommand implements Command {
             SendMessage message = SendMessage
                     .builder()
                     .chatId(chatId)
+                    .replyMarkup(keyboardServices.mainMenu(chatId))
                     .text(
                             localizationService.getLocalizedMessage(chatId,"expert.question.default")
                     )
